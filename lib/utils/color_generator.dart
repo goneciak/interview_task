@@ -1,15 +1,16 @@
-import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:flutter/material.dart';
+import 'package:interview_task/constants.dart';
 
 class ColorGenerator {
   final Random _random = Random();
 
   Color generateRandomColor() {
     return Color.fromARGB(
-      255,
-      _random.nextInt(256),
-      _random.nextInt(256),
-      _random.nextInt(256),
+      AppConstants.maxColorComponentValue,
+      _random.nextInt(AppConstants.maxColorValue),
+      _random.nextInt(AppConstants.maxColorValue),
+      _random.nextInt(AppConstants.maxColorValue),
     );
   }
 }

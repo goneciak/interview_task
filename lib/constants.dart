@@ -10,4 +10,8 @@ class AppConstants {
   static const Duration animationDuration = Duration(milliseconds: 500);
 
   static const double textFontSize = 32.0;
+
+  static const double backgroundColorLuminance = 0.5;
+
+  static const int maxColorValue = 255;
 }

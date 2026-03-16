@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'utils/color_generator.dart';
-import 'l10n/app_localizations.dart';
-import 'constants.dart';
+import 'package:interview_task/constants.dart';
+import 'package:interview_task/l10n/app_localizations.dart';
+import 'package:interview_task/utils/color_generator.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,7 +21,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   Color _getTextColor() {
-    return _backgroundColor.computeLuminance() > 0.5
+    return _backgroundColor.computeLuminance() >
+            AppConstants.backgroundColorLuminance
         ? AppConstants.darkTextColor
         : AppConstants.lightTextColor;
   }
@@ -51,6 +52,8 @@ class _Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: onTap,
@@ -59,7 +62,7 @@ class _Body extends StatelessWidget {
         color: backgroundColor,
         child: Center(
           child: Text(
-            AppLocalizations.of(context)!.helloThere,
+            l10n?.helloThere ?? 'Hello there!',
             style: TextStyle(
               fontSize: AppConstants.textFontSize,
               color: textColor,

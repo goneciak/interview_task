@@ -1,6 +1,7 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:interview_task/utils/color_generator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:interview_task/constants.dart';
+import 'package:interview_task/utils/color_generator.dart';
 
 void main() {
   group('ColorGenerator', () {
@@ -17,9 +18,18 @@ void main() {
 
       final color = generator.generateRandomColor();
 
-      expect(color.red, inInclusiveRange(0, 255));
-      expect(color.green, inInclusiveRange(0, 255));
-      expect(color.blue, inInclusiveRange(0, 255));
+      expect(
+        color.red,
+        inInclusiveRange(0, AppConstants.maxColorComponentValue),
+      );
+      expect(
+        color.green,
+        inInclusiveRange(0, AppConstants.maxColorComponentValue),
+      );
+      expect(
+        color.blue,
+        inInclusiveRange(0, AppConstants.maxColorComponentValue),
+      );
     });
   });
 }
